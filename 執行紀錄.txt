@@ -1,0 +1,377 @@
+PS D:\System Programing\final_project> npm start
+
+> final_project@1.0.0 start
+> node main.js
+
+Reading ./Fig2_5.txt...
+Read ./Fig2_5.txt successfully!
+
+Doing pass 1...
+decLocCounter starts from 0 (hex: 0x0)    
+Finish pass1!
+
+Doing pass2...
+Finish All object codes!
+
+Changing object codes to object program...
+Finish pass2!
+
+symbolTable:
+Map(15) {
+  'COPY' => '0000',
+  'FIRST' => '0000',
+  'CLOOP' => '0006',
+  'ENDFIL' => '001a',
+  'EOF' => '002d',
+  'RETADR' => '0030',
+  'LENGTH' => '0033',
+  'BUFFER' => '0036',
+  'RDREC' => '1036',
+  'RLOOP' => '1040',
+  'EXIT' => '1056',
+  'INPUT' => '105c',
+  'WRREC' => '105d',
+  'WLOOP' => '1062',
+  'OUTPUT' => '1076'
+}
+
+Details:
+[
+  { sourceCode: [ 'COPY', 'START', '0' ], loc: '0' },
+  {
+    sourceCode: [ 'FIRST', 'STL', 'RETADR' ],
+    loc: '0',
+    machineCode: '14',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '17202d'
+  },
+  {
+    sourceCode: [ 'LDB', '#LENGTH' ],
+    loc: '3',
+    machineCode: '68',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: false,
+    objectCode: '0d2000'
+  },
+  { sourceCode: [ 'BASE', 'LENGTH' ], loc: '6' },
+  {
+    sourceCode: [ 'CLOOP', '+JSUB', 'RDREC' ],
+    loc: '6',
+    machineCode: '48',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: true,
+    objectCode: '4b101036'
+  },
+  {
+    sourceCode: [ 'LDA', 'LENGTH' ],
+    loc: 'a',
+    machineCode: '00',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '032026'
+  },
+  {
+    sourceCode: [ 'COMP', '#0' ],
+    loc: 'd',
+    machineCode: '28',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: false,
+    objectCode: '290000'
+  },
+  {
+    sourceCode: [ 'JEQ', 'ENDFIL' ],
+    loc: '10',
+    machineCode: '30',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '332007'
+  },
+  {
+    sourceCode: [ '+JSUB', 'WRREC' ],
+    loc: '13',
+    machineCode: '48',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: true,
+    objectCode: '4b10105d'
+  },
+  {
+    sourceCode: [ 'J', 'CLOOP' ],
+    loc: '17',
+    machineCode: '3C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '3f2fec'
+  },
+  {
+    sourceCode: [ 'ENDFIL', 'LDA', 'EOF' ],
+    loc: '1a',
+    machineCode: '00',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '032010'
+  },
+  {
+    sourceCode: [ 'STA', 'BUFFER' ],
+    loc: '1d',
+    machineCode: '0C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '0f2016'
+  },
+  {
+    sourceCode: [ 'LDA', '#3' ],
+    loc: '20',
+    machineCode: '00',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: false,
+    objectCode: '010003'
+  },
+  {
+    sourceCode: [ 'STA', 'LENGTH' ],
+    loc: '23',
+    machineCode: '0C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '0f200d'
+  },
+  {
+    sourceCode: [ '+JSUB', 'WRREC' ],
+    loc: '26',
+    machineCode: '48',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: true,
+    objectCode: '4b10105d'
+  },
+  {
+    sourceCode: [ 'J', '@RETADR' ],
+    loc: '2a',
+    machineCode: '3C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '3e2003'
+  },
+  {
+    sourceCode: [ 'EOF', 'BYTE', "C'EOF'" ],
+    loc: '2d',
+    objectCode: '454f46'
+  },
+  { sourceCode: [ 'RETADR', 'RESW', '1' ], loc: '30' },
+  { sourceCode: [ 'LENGTH', 'RESW', '1' ], loc: '33' },
+  { sourceCode: [ 'BUFFER', 'RESB', '4096' ], loc: '36' },
+  {
+    sourceCode: [ 'RDREC', 'CLEAR', 'X' ],
+    loc: '1036',
+    machineCode: 'B4',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B410'
+  },
+  {
+    sourceCode: [ 'CLEAR', 'A' ],
+    loc: '1038',
+    machineCode: 'B4',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B400'
+  },
+  {
+    sourceCode: [ 'CLEAR', 'S' ],
+    loc: '103a',
+    machineCode: 'B4',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B440'
+  },
+  {
+    sourceCode: [ '+LDT', '#4096' ],
+    loc: '103c',
+    machineCode: '74',
+    format: '3/4',
+    isExecutable: true,
+    needMRecord: false,
+    objectCode: '75101000'
+  },
+  {
+    sourceCode: [ 'RLOOP', 'TD', 'INPUT' ],
+    loc: '1040',
+    machineCode: 'E0',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: 'e32019'
+  },
+  {
+    sourceCode: [ 'JEQ', 'RLOOP' ],
+    loc: '1043',
+    machineCode: '30',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '332ffa'
+  },
+  {
+    sourceCode: [ 'RD', 'INPUT' ],
+    loc: '1046',
+    machineCode: 'D8',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: 'db2013'
+  },
+  {
+    sourceCode: [ 'COMPR', 'A,S' ],
+    loc: '1049',
+    machineCode: 'A0',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'A004'
+  },
+  {
+    sourceCode: [ 'JEQ', 'EXIT' ],
+    loc: '104b',
+    machineCode: '30',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '332008'
+  },
+  {
+    sourceCode: [ 'STCH', 'BUFFER,X' ],
+    loc: '104e',
+    machineCode: '54',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '57c003'
+  },
+  {
+    sourceCode: [ 'TIXR', 'T' ],
+    loc: '1051',
+    machineCode: 'B8',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B850'
+  },
+  {
+    sourceCode: [ 'JLT', 'RLOOP' ],
+    loc: '1053',
+    machineCode: '38',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '3b2fea'
+  },
+  {
+    sourceCode: [ 'EXIT', 'STX', 'LENGTH' ],
+    loc: '1056',
+    machineCode: '10',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '134000'
+  },
+  {
+    sourceCode: [ 'RSUB' ],
+    loc: '1059',
+    machineCode: '4C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '4f0000'
+  },
+  {
+    sourceCode: [ 'INPUT', 'BYTE', "X'F1'" ],
+    loc: '105c',
+    objectCode: 'F1'
+  },
+  {
+    sourceCode: [ 'WRREC', 'CLEAR', 'X' ],
+    loc: '105d',
+    machineCode: 'B4',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B410'
+  },
+  {
+    sourceCode: [ 'LDT', 'LENGTH' ],
+    loc: '105f',
+    machineCode: '74',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '774000'
+  },
+  {
+    sourceCode: [ 'WLOOP', 'TD', 'OUTPUT' ],
+    loc: '1062',
+    machineCode: 'E0',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: 'e32011'
+  },
+  {
+    sourceCode: [ 'JEQ', 'WLOOP' ],
+    loc: '1065',
+    machineCode: '30',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '332ffa'
+  },
+  {
+    sourceCode: [ 'LDCH', 'BUFFER,X' ],
+    loc: '1068',
+    machineCode: '50',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '53c003'
+  },
+  {
+    sourceCode: [ 'WD', 'OUTPUT' ],
+    loc: '106b',
+    machineCode: 'DC',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: 'df2008'
+  },
+  {
+    sourceCode: [ 'TIXR', 'T' ],
+    loc: '106e',
+    machineCode: 'B8',
+    format: '2',
+    isExecutable: true,
+    objectCode: 'B850'
+  },
+  {
+    sourceCode: [ 'JLT', 'WLOOP' ],
+    loc: '1070',
+    machineCode: '38',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '3b2fef'
+  },
+  {
+    sourceCode: [ 'RSUB' ],
+    loc: '1073',
+    machineCode: '4C',
+    format: '3/4',
+    isExecutable: true,
+    objectCode: '4f0000'
+  },
+  {
+    sourceCode: [ 'OUTPUT', 'BYTE', "X'05'" ],
+    loc: '1076',
+    objectCode: '05'
+  },
+  { sourceCode: [ 'END', 'FIRST' ], loc: '1077' }
+]
+
+Result:
+HCOPY000000^001077
+T000000^06^17202d^0d2000^
+T000006^20^4b101036^032026^290000^332007^4b10105d^3f2fec^032010^0f2016^010003^0f200d^
+T000026^0a^4b10105d^3e2003^454f46^
+T001036^1b^B410^B400^B440^75101000^e32019^332ffa^db2013^A004^332008^57c003^
+T001051^1a^B850^3b2fea^134000^4f0000^F1^B410^774000^e32011^332ffa^53c003^
+T00106b^0c^df2008^B850^3b2fef^4f0000^05^
+M000007^05
+M000014^05
+M000027^05
+E000000
